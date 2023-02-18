@@ -1,0 +1,10 @@
+name: tests
+on: push
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prepare
+        run: docker build -t saardagan/react-test -f ./client/Dockerfile.devnpm test
+      - name: execute
+        run: docker run saardagan/react-test npm test -- --coverage
