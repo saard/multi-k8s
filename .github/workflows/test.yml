@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: prepare
-        run: docker build -t saardagan/react-test -f ./client/Dockerfile.devn
+        run: docker build -t saardagan/react-test -f ./client/Dockerfile.dev
       - name: execute
         run: docker run saardagan/react-test npm test -- --coverage
