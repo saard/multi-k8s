@@ -11,4 +11,4 @@ jobs:
       - name: build
         run: docker build -f ./client/Dockerfile.dev -t saardagan/react-test ./client
       - name: execute
-        run: docker run saardagan/react-test npm test
+        run: docker run -e CI=true saardagan/react-test npm test -- --coverage
