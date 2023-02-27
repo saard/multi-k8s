@@ -1,0 +1,8 @@
+name: print-refs
+on: push
+jobs:
+  print-ref:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print-ref-obj
+        run: echo ${{github.ref}}
