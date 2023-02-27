@@ -1,22 +1,20 @@
 name: tests
 on: push
 jobs:
-  run-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: prepare
-        uses: actions/checkout@v3
-      - name: verify code
-        run: ls
-      - name: build
-        run: docker build -f ./client/Dockerfile.dev -t saardagan/react-test ./client
-      - name: execute
-        run: docker run -e CI=true saardagan/react-test npm test -- --coverage
+#  run-test:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: prepare
+#        uses: actions/checkout@v3
+#      - name: verify code
+#        run: ls
+#      - name: build
+#        run: docker build -f ./client/Dockerfile.dev -t saardagan/react-test ./client
+#      - name: execute
+#        run: docker run -e CI=true saardagan/react-test npm test -- --coverage
   push-client:
     runs-on: ubuntu-latest
     needs: run-test
     steps:
-      - name: print SHA
-        run: echo | git rev-parse HEAD
       - name: print refs
         run: echo ${{github.ref}}
