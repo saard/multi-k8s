@@ -1,5 +1,7 @@
 name: print-refs
-on: push
+on:
+  push:
+    
 jobs:
   print-ref:
     runs-on: ubuntu-latest
